@@ -21,11 +21,6 @@ export default function MultipleFilters() {
     setActiveFilters(updatedFilters);
   };
 
-  useEffect(() => {
-    //update items list state whenever filter is udpated
-    filterItems();
-  }, [activeFilters]);
-
   const filterItems = () => {
     if (activeFilters.filter((f) => f.isActive === true).length === 0) {
       return;
@@ -39,6 +34,11 @@ export default function MultipleFilters() {
       setItems(filteredItems);
     }
   };
+
+  useEffect(() => {
+    //update items list state whenever filter is udpated
+    filterItems();
+  }, [activeFilters]);
 
   return (
     <div>
